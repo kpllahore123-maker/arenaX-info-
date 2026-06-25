@@ -1,1 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>ArenaX — About</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+:root{
+  --bg:#07080f;--panel:#0c0e18;--card:#101320;--ele:#161b28;
+  --gold:#f0c040;--g2:rgba(240,192,64,.1);--g3:rgba(240,192,64,.22);
+  --blue:#4f9eff;--green:#3ddc84;--red:#e8404a;--purple:#a78bfa;--orange:#f97316;
+  --t1:#eef0fa;--t2:#6b7494;--t3:#252d45;--bdr:#181d30;
+  --ff:'Rajdhani',sans-serif;--fb:'Inter',sans-serif;--fm:'JetBrains Mono',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--t1);font-family:var(--fb);overflow-x:hidden;line-height:1.6}
+*{cursor:none!important}
+
+/* CURSOR */
+#C{position:fixed;width:7px;height:7px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);box-shadow:0 0 12px rgba(240,192,64,.9),0 0 28px rgba(240,192,64,.25);mix-blend-mode:screen;transition:transform .1s}
+#CR{position:fixed;width:30px;height:30px;border:1px solid rgba(240,192,64,.38);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:left .1s ease,top .1s ease,width .22s,height .22s,border-color .22s}
+#C.ck{transform:translate(-50%,-50%) scale(3.5);background:#fff}
+#CR.hv{width:46px;height:46px;border-color:rgba(240,192,64,.8)}
+.ctr{position:fixed;border-radius:50%;pointer-events:none;z-index:9997;transform:translate(-50%,-50%);animation:cfa .55s ease forwards}
+@keyframes cfa{to{opacity:0;transform:translate(-50%,-50%) scale(.05)}}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:60px;padding:0 40px;display:flex;align-items:center;justify-content:space-between;transition:all .3s}
+nav.sol{background:rgba(7,8,15,.94);backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr)}
+.nlogo{font-family:var(--ff);font-size:21px;font-weight:700;letter-spacing:1.5px;text-decoration:none;color:var(--t1);display:flex;align-items:center;gap:8px}
+.nlogo-i{width:28px;height:28px;background:linear-gradient(135deg,var(--gold),#c8900a);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#07080f}
+.nlogo span{color:var(--gold)}
+.nright{display:flex;align-items:center;gap:20px}
+.nlinks{display:flex;gap:26px}
+.nlinks a{font-size:12.5px;color:var(--t2);text-decoration:none;letter-spacing:.3px;transition:color .2s}
+.nlinks a:hover{color:var(--t1)}
+.nbadge{font-family:var(--fm);font-size:9.5px;padding:4px 12px;border:1px solid rgba(232,64,74,.35);border-radius:20px;color:var(--red);background:rgba(232,64,74,.07);display:flex;align-items:center;gap:6px}
+.bdot{width:5px;height:5px;border-radius:50%;background:var(--red);animation:bl 1.5s step-end infinite}
+@keyframes bl{0%,100%{opacity:1}50%{opacity:0}}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:80px 40px;text-align:center}
+.orb1{position:absolute;top:-180px;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(240,192,64,.055) 0%,transparent 65%);pointer-events:none;animation:ob 9s ease-in-out infinite alternate}
+@keyframes ob{from{transform:translateX(-50%) scale(1)}to{transform:translateX(-50%) scale(1.1)}}
+.orb2{position:absolute;bottom:-200px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(79,158,255,.04) 0%,transparent 70%);pointer-events:none}
+.hgrid{position:absolute;inset:0;background-image:linear-gradient(rgba(24,29,48,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(24,29,48,.5) 1px,transparent 1px);background-size:68px 68px;mask-image:radial-gradient(ellipse 85% 75% at 50% 50%,black 20%,transparent 100%)}
+.hero-in{position:relative;z-index:1;max-width:740px}
+.hbadge{display:inline-flex;align-items:center;gap:8px;background:rgba(232,64,74,.07);border:1px solid rgba(232,64,74,.28);border-radius:24px;padding:5px 16px;font-family:var(--fm);font-size:10px;color:var(--red);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:28px;animation:pop .6s cubic-bezier(.34,1.56,.64,1) .2s both}
+@keyframes pop{from{opacity:0;transform:scale(.8) translateY(8px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.hero-h1{font-family:var(--ff);font-size:clamp(50px,9vw,96px);font-weight:700;line-height:.92;letter-spacing:-2px;margin-bottom:22px;animation:fu .8s ease .3s both}
+@keyframes fu{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+.hero-h1 em{font-style:normal;color:var(--gold)}
+.hero-p{font-size:15px;color:var(--t2);max-width:480px;margin:0 auto 36px;font-weight:300;line-height:1.75;animation:fu .8s ease .45s both}
+
+/* DEV PILL */
+.dev-pill{display:inline-flex;align-items:center;gap:12px;background:var(--g2);border:1px solid var(--g3);border-radius:12px;padding:11px 22px;margin-bottom:40px;animation:fu .8s ease .55s both}
+.dev-pill-txt{font-size:13px;color:var(--t2)}.dev-pill-txt strong{color:var(--gold)}
+.prog-wrap{width:140px;height:4px;background:var(--bdr);border-radius:4px;overflow:hidden}
+.prog-fill{height:100%;width:38%;background:linear-gradient(90deg,var(--gold),rgba(240,192,64,.4));border-radius:4px;position:relative}
+.prog-fill::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);animation:sh 2s ease infinite}
+@keyframes sh{from{transform:translateX(-100%)}to{transform:translateX(200%)}}.dev-pct{font-family:var(--fm);font-size:11px;color:var(--gold)}
+
+/* STAT ROW */
+.hstats{display:flex;justify-content:center;border:1px solid var(--bdr);border-radius:14px;overflow:hidden;background:var(--panel);max-width:520px;margin:0 auto;animation:fu .8s ease .65s both}
+.hst{flex:1;padding:16px 18px;text-align:center;border-right:1px solid var(--bdr);transition:background .2s}
+.hst:last-child{border-right:none}.hst:hover{background:var(--card)}
+.hst-v{font-family:var(--ff);font-size:24px;font-weight:700;color:var(--gold)}
+.hst-l{font-size:9.5px;color:var(--t2);text-transform:uppercase;letter-spacing:.8px;margin-top:2px}
+
+/* SECTION */
+.sec{padding:80px 40px}
+.sec-in{max-width:1040px;margin:0 auto}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--fm);font-size:9.5px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;opacity:.7;margin-bottom:14px}
+.eyebrow::before{content:'';width:20px;height:1px;background:var(--gold)}
+.sec-h{font-family:var(--ff);font-size:clamp(26px,4vw,42px);font-weight:700;line-height:1.05;letter-spacing:-.5px;margin-bottom:12px}
+.sec-p{font-size:14px;color:var(--t2);font-weight:300;line-height:1.8;max-width:440px}
+
+/* BIG BUTTONS */
+.bigbtn{display:flex;align-items:center;justify-content:space-between;padding:22px 24px;border-radius:16px;text-decoration:none;color:inherit;border:1px solid var(--bdr);background:var(--card);transition:all .3s cubic-bezier(.22,1,.36,1);position:relative;overflow:hidden}
+.bigbtn::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .3s}
+.bigbtn:hover{transform:translateY(-3px)}
+.bigbtn:hover::before{opacity:1}
+.bigbtn-gold::before{background:radial-gradient(ellipse 80% 100% at 0% 50%,rgba(240,192,64,.06),transparent)}
+.bigbtn-gold:hover{border-color:rgba(240,192,64,.35)}
+.bigbtn-purple::before{background:radial-gradient(ellipse 80% 100% at 0% 50%,rgba(167,139,250,.06),transparent)}
+.bigbtn-purple:hover{border-color:rgba(167,139,250,.35)}
+.bigbtn-left{display:flex;align-items:center;gap:18px;flex:1}
+.bigbtn-ico{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;background:var(--g2);color:var(--gold);border:1px solid var(--g3);transition:transform .3s}
+.bigbtn:hover .bigbtn-ico{transform:scale(1.08)}
+.bigbtn-title{font-family:var(--ff);font-size:21px;font-weight:700;margin-bottom:4px}
+.bigbtn-gold .bigbtn-title{color:var(--gold)}
+.bigbtn-purple .bigbtn-title{color:var(--purple)}
+.bigbtn-desc{font-size:12.5px;color:var(--t2);line-height:1.55;font-weight:300;max-width:480px}
+.bigbtn-arr{width:40px;height:40px;border-radius:50%;border:1px solid rgba(240,192,64,.2);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:14px;flex-shrink:0;transition:all .25s}
+.bigbtn:hover .bigbtn-arr{transform:translateX(4px);background:var(--g2)}
+
+/* NAV CARDS GRID */
+.nav-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:48px}
+.nav-card{background:var(--card);border:1px solid var(--bdr);border-radius:16px;padding:24px 22px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:14px;transition:all .3s cubic-bezier(.22,1,.36,1);position:relative;overflow:hidden}
+.nav-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;transform:scaleX(0);transform-origin:left;transition:transform .3s;border-radius:2px 2px 0 0}
+.nav-card:hover{transform:translateY(-5px)}
+.nav-card:hover::before{transform:scaleX(1)}
+.nc-blue::before,.nc-blue:hover{border-color:rgba(79,158,255,.35)}.nc-blue::before{background:var(--blue)}
+.nc-gold::before,.nc-gold:hover{border-color:rgba(240,192,64,.35)}.nc-gold::before{background:var(--gold)}
+.nc-green::before,.nc-green:hover{border-color:rgba(61,220,132,.35)}.nc-green::before{background:var(--green)}
+.nc-red::before,.nc-red:hover{border-color:rgba(232,64,74,.35)}.nc-red::before{background:var(--red)}
+.nc-purple::before,.nc-purple:hover{border-color:rgba(167,139,250,.35)}.nc-purple::before{background:var(--purple)}
+.nc-orange::before,.nc-orange:hover{border-color:rgba(249,115,22,.35)}.nc-orange::before{background:var(--orange)}
+.nav-card-ico{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px}
+.nc-blue .nav-card-ico{background:rgba(79,158,255,.1);color:var(--blue)}
+.nc-gold .nav-card-ico{background:var(--g2);color:var(--gold)}
+.nc-green .nav-card-ico{background:rgba(61,220,132,.1);color:var(--green)}
+.nc-red .nav-card-ico{background:rgba(232,64,74,.1);color:var(--red)}
+.nc-purple .nav-card-ico{background:rgba(167,139,250,.1);color:var(--purple)}
+.nc-orange .nav-card-ico{background:rgba(249,115,22,.1);color:var(--orange)}
+.nav-card-title{font-family:var(--ff);font-size:19px;font-weight:700}
+.nav-card-desc{font-size:12.5px;color:var(--t2);line-height:1.6;font-weight:300;flex:1}
+.nav-card-arr{display:flex;align-items:center;justify-content:space-between;margin-top:4px}
+.nav-card-tag{font-family:var(--fm);font-size:9.5px;color:var(--t3);letter-spacing:.8px;text-transform:uppercase}
+.nav-card-arr i{font-size:12px;color:var(--t3);transition:transform .2s,color .2s}
+.nav-card:hover .nav-card-arr i{transform:translateX(4px);color:var(--gold)}
+
+/* TEAM MINI */
+.team-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:48px}
+.tmi{background:var(--card);border:1px solid var(--bdr);border-radius:16px;padding:22px;display:flex;align-items:center;gap:16px;text-decoration:none;color:inherit;transition:all .3s}
+.tmi:hover{transform:translateY(-3px)}
+.tmi-dev:hover{border-color:rgba(79,158,255,.35)}
+.tmi-adm:hover{border-color:rgba(240,192,64,.35)}
+.tmi-avi{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.tmi-dev .tmi-avi{background:rgba(79,158,255,.1);color:var(--blue);border:1px solid rgba(79,158,255,.18)}
+.tmi-adm .tmi-avi{background:var(--g2);color:var(--gold);border:1px solid var(--g3)}
+.tmi-tag{font-family:var(--fm);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px}
+.tmi-dev .tmi-tag{color:var(--blue)}.tmi-adm .tmi-tag{color:var(--gold)}
+.tmi-name{font-family:var(--ff);font-size:22px;font-weight:700}
+.tmi-dev .tmi-name{color:var(--t1)}.tmi-adm .tmi-name{color:var(--gold)}
+.tmi-role{font-size:12px;color:var(--t2);margin-top:2px}
+.tmi-arr{margin-left:auto;font-size:13px;color:var(--t3);transition:all .2s;flex-shrink:0}
+.tmi:hover .tmi-arr{transform:translateX(4px);color:var(--gold)}
+
+/* DEV STATUS */
+.dev-sec{background:var(--panel);border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr)}
+.dev-box{background:var(--card);border:1px solid var(--bdr);border-radius:18px;padding:40px;margin-top:48px;position:relative;overflow:hidden}
+.dev-box::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(240,192,64,.04),transparent);pointer-events:none}
+.dev-box-title{font-family:var(--ff);font-size:34px;font-weight:700;margin-bottom:10px}
+.dev-box-title span{color:var(--gold)}
+.dev-box-sub{font-size:13.5px;color:var(--t2);margin-bottom:28px;font-weight:300;max-width:420px}
+.dev-bar-row{display:flex;align-items:center;gap:14px;margin-bottom:24px;max-width:400px}
+.dev-bar{flex:1;height:5px;background:var(--bdr);border-radius:5px;overflow:hidden}
+.dev-bar-fill{height:100%;width:38%;background:linear-gradient(90deg,var(--gold),rgba(240,192,64,.4));border-radius:5px;position:relative}
+.dev-bar-fill::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.28),transparent);animation:sh 2s ease infinite}
+.dev-pct-lbl{font-family:var(--fm);font-size:12px;color:var(--gold);flex-shrink:0}
+.dev-items{display:flex;flex-wrap:wrap;gap:9px}
+.di{display:flex;align-items:center;gap:7px;padding:7px 14px;background:var(--ele);border:1px solid var(--bdr);border-radius:8px;font-size:12px}
+.di.done{color:var(--green)}.di.wip{color:var(--gold)}.di.todo{color:var(--t3)}
+
+/* FOOTER */
+footer{padding:48px 40px;border-top:1px solid var(--bdr);text-align:center}
+.fl{font-family:var(--ff);font-size:22px;font-weight:700;letter-spacing:1px;margin-bottom:6px}
+.fl span{color:var(--gold)}
+.ft{font-size:10px;color:var(--t3);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:22px}
+.flinks{display:flex;justify-content:center;gap:24px;margin-bottom:20px;flex-wrap:wrap}
+.flinks a{font-size:12px;color:var(--t2);text-decoration:none;transition:color .2s}
+.flinks a:hover{color:var(--gold)}
+.fc{font-size:11px;color:var(--t3)}
+.ftm{font-family:var(--fm);font-size:10.5px;color:var(--t3);margin-top:8px}
+.ftm span{color:var(--t2)}
+
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.rv.vis{opacity:1;transform:translateY(0)}
+.rv-l{opacity:0;transform:translateX(-22px);transition:opacity .7s ease,transform .7s ease}
+.rv-l.vis{opacity:1;transform:translateX(0)}
+
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-thumb{background:var(--bdr);border-radius:3px}
+@media(max-width:720px){nav{padding:0 18px}.sec{padding:60px 20px}.nav-grid{grid-template-columns:1fr 1fr}.team-row{grid-template-columns:1fr}.hero{padding:80px 20px}.nlinks{display:none}}
+@media(max-width:480px){.nav-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div id="C"></div><div id="CR"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nlogo"><div class="nlogo-i"><i class="fas fa-trophy"></i></div>Arena<span>X</span></a>
+  <div class="nright">
+    <div class="nlinks">
+      <a href="#explore">Explore</a>
+      <a href="#team">Team</a>
+      <a href="#dev">Status</a>
+    </div>
+    <div class="nbadge"><span class="bdot"></span> In Dev</div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="orb1"></div><div class="orb2"></div><div class="hgrid"></div>
+  <div class="hero-in">
+    <div class="hbadge"><span class="bdot"></span> Under Active Development</div>
+    <h1 class="hero-h1">Built for those<br>who <em>Dominate</em></h1>
+    <p class="hero-p">ArenaX is a tournament platform for competitive mobile gaming — fast, fair, and built with pure intention by a two-person team.</p>
+    <div class="dev-pill">
+      <i class="fas fa-cog" style="color:var(--gold);animation:spin 3s linear infinite;font-size:14px"></i>
+      <span class="dev-pill-txt">Platform is <strong>38% complete</strong></span>
+      <div class="prog-wrap"><div class="prog-fill"></div></div>
+      <span class="dev-pct">38%</span>
+    </div>
+    <div class="hstats">
+      <div class="hst"><div class="hst-v" id="hv1">0</div><div class="hst-l">Players</div></div>
+      <div class="hst"><div class="hst-v" id="hv2">0</div><div class="hst-l">Tournaments</div></div>
+      <div class="hst"><div class="hst-v" id="hv3">0K</div><div class="hst-l">AX Coins</div></div>
+      <div class="hst"><div class="hst-v">2</div><div class="hst-l">Team</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- QUICK LINKS -->
+<section class="sec" id="explore">
+  <div class="sec-in">
+    <div class="rv">
+      <div class="eyebrow">Explore</div>
+      <h2 class="sec-h">Where do you want to go?</h2>
+      <p class="sec-p">Every section of ArenaX has its own dedicated page. Pick one.</p>
+    </div>
+
+    <!-- TOP ROW: Platform + Admin (2 col) -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:48px" class="rv">
+      <a href="ArenaX.html" class="nav-card nc-blue">
+        <div class="nav-card-ico"><i class="fas fa-gamepad"></i></div>
+        <div class="nav-card-title">Platform</div>
+        <div class="nav-card-desc">Login, play, manage wallet, track tournaments, and chat with support.</div>
+        <div class="nav-card-arr"><span class="nav-card-tag">ArenaX.html</span><i class="fas fa-arrow-right"></i></div>
+      </a>
+      <a href="admin.html" class="nav-card nc-red">
+        <div class="nav-card-ico"><i class="fas fa-shield-alt"></i></div>
+        <div class="nav-card-title">Admin Panel</div>
+        <div class="nav-card-desc">Manage players, tickets, tournaments, and enforce fair play. Restricted.</div>
+        <div class="nav-card-arr"><span class="nav-card-tag">admin.html</span><i class="fas fa-arrow-right"></i></div>
+      </a>
+    </div>
+
+    <!-- BIG RULES BUTTON -->
+    <a href="rules.html" class="bigbtn bigbtn-gold rv" style="margin-top:14px">
+      <div class="bigbtn-left">
+        <div class="bigbtn-ico"><i class="fas fa-book-open"></i></div>
+        <div>
+          <div class="bigbtn-title">Rules & Guidelines</div>
+          <div class="bigbtn-desc">30 rules across 5 categories — General, Team, Prizes, Conduct & Anti-Cheat. Read before you compete.</div>
+        </div>
+      </div>
+      <div class="bigbtn-arr"><i class="fas fa-arrow-right"></i></div>
+    </a>
+
+    <!-- BIG PROFILES BUTTON -->
+    <a href="#team" class="bigbtn bigbtn-purple rv" style="margin-top:14px">
+      <div class="bigbtn-left">
+        <div class="bigbtn-ico" style="background:rgba(167,139,250,.1);color:var(--purple);border-color:rgba(167,139,250,.22)"><i class="fas fa-users"></i></div>
+        <div>
+          <div class="bigbtn-title">Meet the Team</div>
+          <div class="bigbtn-desc">Saadan (Developer) and Rayan (Admin) — the two people behind ArenaX. View their full profiles below.</div>
+        </div>
+      </div>
+      <div class="bigbtn-arr" style="border-color:rgba(167,139,250,.2);color:var(--purple)"><i class="fas fa-arrow-down"></i></div>
+    </a>
+
+    <!-- CONTACT -->
+    <a href="mailto:contact@arenax.gg" class="nav-card nc-green rv" style="margin-top:14px;flex-direction:row;align-items:center;gap:16px">
+      <div class="nav-card-ico" style="flex-shrink:0"><i class="fas fa-envelope"></i></div>
+      <div style="flex:1">
+        <div class="nav-card-title" style="font-size:16px">Contact Us</div>
+        <div class="nav-card-desc" style="margin:0">Bug report, partnership, or just a question? We respond.</div>
+      </div>
+      <i class="fas fa-arrow-right" style="color:var(--t3);font-size:13px;flex-shrink:0;transition:all .2s"></i>
+    </a>
+
+  </div>
+</section>
+
+<!-- TEAM PROFILES -->
+<section class="sec" style="background:var(--panel);border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);padding-top:60px;padding-bottom:60px" id="team">
+  <div class="sec-in">
+    <div class="rv" style="text-align:center;margin-bottom:40px">
+      <div class="eyebrow" style="justify-content:center;margin:0 auto 14px">The Team</div>
+      <h2 class="sec-h" style="text-align:center">Two people.<br>One platform.</h2>
+      <p class="sec-p" style="margin:0 auto;text-align:center">Click a profile to see the full page.</p>
+    </div>
+    <div class="team-row">
+      <a href="saadan.html" class="tmi tmi-dev rv-l">
+        <div class="tmi-avi"><i class="fas fa-code"></i></div>
+        <div>
+          <div class="tmi-tag">Developer</div>
+          <div class="tmi-name">Saadan</div>
+          <div class="tmi-role">Designed & built ArenaX from scratch</div>
+        </div>
+        <i class="fas fa-arrow-right tmi-arr"></i>
+      </a>
+      <a href="rayan.html" class="tmi tmi-adm rv-l" style="transition-delay:.08s">
+        <div class="tmi-avi"><i class="fas fa-shield-alt"></i></div>
+        <div>
+          <div class="tmi-tag">Admin</div>
+          <div class="tmi-name">Rayan</div>
+          <div class="tmi-role">Manages operations & player support</div>
+        </div>
+        <i class="fas fa-arrow-right tmi-arr"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- DEV STATUS -->
+<section class="sec dev-sec" id="dev">
+  <div class="sec-in">
+    <div class="rv">
+      <div class="eyebrow">Development Status</div>
+      <h2 class="sec-h">Still cooking.</h2>
+      <p class="sec-p">Actively being built. New features drop regularly.</p>
+    </div>
+    <div class="dev-box rv">
+      <div class="dev-box-title">ArenaX is <span>38%</span> complete</div>
+      <div class="dev-box-sub">Saadan is building. Rayan is testing. The platform goes live when it's ready — not before.</div>
+      <div class="dev-bar-row">
+        <div class="dev-bar"><div class="dev-bar-fill"></div></div>
+        <span class="dev-pct-lbl">38 / 100</span>
+      </div>
+      <div class="dev-items">
+        <div class="di done"><i class="fas fa-check-circle"></i> Login System</div>
+        <div class="di done"><i class="fas fa-check-circle"></i> Player Profiles</div>
+        <div class="di done"><i class="fas fa-check-circle"></i> Wallet</div>
+        <div class="di done"><i class="fas fa-check-circle"></i> Admin Panel</div>
+        <div class="di done"><i class="fas fa-check-circle"></i> Support Chat</div>
+        <div class="di done"><i class="fas fa-check-circle"></i> Rules Page</div>
+        <div class="di wip"><i class="fas fa-spinner fa-spin"></i> Tournament Engine</div>
+        <div class="di wip"><i class="fas fa-spinner fa-spin"></i> Live Leaderboards</div>
+        <div class="di todo"><i class="far fa-circle"></i> Backend / Database</div>
+        <div class="di todo"><i class="far fa-circle"></i> Mobile App</div>
+        <div class="di todo"><i class="far fa-circle"></i> Payment Gateway</div>
+        <div class="di todo"><i class="far fa-circle"></i> Anti-cheat System</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fl">Arena<span>X</span></div>
+  <div class="ft">Compete · Rise · Dominate</div>
+  <div class="flinks">
+    <a href="ArenaX.html">Platform</a>
+    <a href="rules.html">Rules</a>
+    <a href="admin.html">Admin</a>
+    <a href="saadan.html">Saadan</a>
+    <a href="rayan.html">Rayan</a>
+  </div>
+  <div class="fc">© 2026 ArenaX — Pure HTML, CSS & JS</div>
+  <div class="ftm"><span>dev</span> Saadan &nbsp;·&nbsp; <span>admin</span> Rayan</div>
+</footer>
+
+<script>
+const C=document.getElementById('C'),CR=document.getElementById('CR');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX;my=e.clientY;
+  C.style.left=mx+'px';C.style.top=my+'px';
+  const t=document.createElement('div');t.className='ctr';
+  const s=1.5+Math.random()*3;
+  t.style.cssText=`left:${mx}px;top:${my}px;width:${s}px;height:${s}px;background:rgba(240,192,64,${.06+Math.random()*.13})`;
+  document.body.appendChild(t);setTimeout(()=>t.remove(),550);
+});
+(function loop(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;CR.style.left=rx+'px';CR.style.top=ry+'px';requestAnimationFrame(loop)})();
+document.addEventListener('mousedown',()=>{C.classList.add('ck');for(let i=0;i<7;i++){const b=document.createElement('div'),a=(i/7)*Math.PI*2,d=14+Math.random()*12;b.className='ctr';b.style.cssText=`left:${mx}px;top:${my}px;width:4px;height:4px;background:rgba(240,192,64,.7);transition:left .3s,top .3s,opacity .3s`;document.body.appendChild(b);requestAnimationFrame(()=>{b.style.left=(mx+Math.cos(a)*d)+'px';b.style.top=(my+Math.sin(a)*d)+'px';b.style.opacity='0'});setTimeout(()=>b.remove(),360)}});
+document.addEventListener('mouseup',()=>C.classList.remove('ck'));
+document.addEventListener('mouseover',e=>{if(e.target.closest('a,button,.nav-card,.tmi'))CR.classList.add('hv')});
+document.addEventListener('mouseout',e=>{if(e.target.closest('a,button,.nav-card,.tmi'))CR.classList.remove('hv')});
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('sol',scrollY>30));
+const ro=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');ro.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('.rv,.rv-l').forEach((el,i)=>{el.style.transitionDelay=(i%5)*55+'ms';ro.observe(el)});
+function cnt(el,to,sfx){let v=0;const s=Math.max(1,Math.floor(to/50)),t=setInterval(()=>{v=Math.min(v+s,to);el.textContent=v.toLocaleString()+sfx;if(v>=to)clearInterval(t)},28)}
+setTimeout(()=>{cnt(document.getElementById('hv1'),1248,'');cnt(document.getElementById('hv2'),5,'');cnt(document.getElementById('hv3'),84,'K')},500);
+</script>
+</body>
+</html>
 
