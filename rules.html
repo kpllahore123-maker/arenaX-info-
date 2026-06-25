@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>ArenaX — Rules</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+:root{--bg:#07080f;--panel:#0c0e18;--card:#101320;--ele:#161b28;--gold:#f0c040;--g2:rgba(240,192,64,.1);--g3:rgba(240,192,64,.22);--blue:#4f9eff;--green:#3ddc84;--red:#e8404a;--purple:#a78bfa;--orange:#f97316;--t1:#eef0fa;--t2:#6b7494;--t3:#252d45;--bdr:#181d30;--ff:'Rajdhani',sans-serif;--fb:'Inter',sans-serif;--fm:'JetBrains Mono',monospace}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--t1);font-family:var(--fb);overflow-x:hidden}
+*{cursor:none!important}
+#C{position:fixed;width:7px;height:7px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);box-shadow:0 0 12px rgba(240,192,64,.9),0 0 28px rgba(240,192,64,.25);mix-blend-mode:screen;transition:transform .1s}
+#CR{position:fixed;width:30px;height:30px;border:1px solid rgba(240,192,64,.38);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:left .1s ease,top .1s ease,width .22s,height .22s,border-color .22s}
+#C.ck{transform:translate(-50%,-50%) scale(3.5);background:#fff}
+#CR.hv{width:46px;height:46px;border-color:rgba(240,192,64,.8)}
+.ctr{position:fixed;border-radius:50%;pointer-events:none;z-index:9997;transform:translate(-50%,-50%);animation:cfa .55s ease forwards}
+@keyframes cfa{to{opacity:0;transform:translate(-50%,-50%) scale(.05)}}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:60px;padding:0 40px;display:flex;align-items:center;justify-content:space-between;background:rgba(7,8,15,.94);backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr)}
+.nlogo{font-family:var(--ff);font-size:21px;font-weight:700;letter-spacing:1.5px;text-decoration:none;color:var(--t1);display:flex;align-items:center;gap:8px}
+.nlogo-i{width:28px;height:28px;background:linear-gradient(135deg,var(--gold),#c8900a);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#07080f}
+.nlogo span{color:var(--gold)}
+.nback{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--t2);text-decoration:none;transition:color .2s;border:1px solid var(--bdr);padding:6px 14px;border-radius:8px;background:var(--card)}
+.nback:hover{color:var(--gold);border-color:var(--g3)}
+
+/* HERO */
+.hero{padding:120px 40px 60px;text-align:center;position:relative;overflow:hidden}
+.orb{position:absolute;top:-120px;left:50%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(240,192,64,.05) 0%,transparent 65%);pointer-events:none}
+.hgrid{position:absolute;inset:0;background-image:linear-gradient(rgba(24,29,48,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(24,29,48,.5) 1px,transparent 1px);background-size:68px 68px;mask-image:radial-gradient(ellipse 80% 70% at 50% 50%,black 20%,transparent 100%)}
+.hero-in{position:relative;z-index:1;max-width:620px;margin:0 auto}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--g2);border:1px solid var(--g3);border-radius:24px;padding:5px 16px;font-family:var(--fm);font-size:10px;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:24px;animation:pop .6s cubic-bezier(.34,1.56,.64,1) .1s both}
+@keyframes pop{from{opacity:0;transform:scale(.8) translateY(8px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.hero-h1{font-family:var(--ff);font-size:clamp(44px,8vw,80px);font-weight:700;line-height:.92;letter-spacing:-2px;margin-bottom:18px;animation:fu .8s ease .2s both}
+@keyframes fu{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.hero-h1 em{font-style:normal;color:var(--gold)}
+.hero-p{font-size:14.5px;color:var(--t2);font-weight:300;line-height:1.75;margin-bottom:32px;animation:fu .8s ease .35s both}
+
+/* SEARCH */
+.search-wrap{max-width:480px;margin:0 auto 0;animation:fu .8s ease .45s both}
+.search-box{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--bdr);border-radius:12px;padding:0 16px;transition:border-color .2s}
+.search-box:focus-within{border-color:var(--g3)}
+.search-box i{font-size:13px;color:var(--t3);flex-shrink:0}
+.search-inp{flex:1;background:none;border:none;outline:none;padding:13px 0;font-size:13.5px;color:var(--t1);font-family:var(--fb)}
+.search-inp::placeholder{color:var(--t3)}
+.search-count{font-family:var(--fm);font-size:10px;color:var(--t3);flex-shrink:0;white-space:nowrap}
+
+/* FILTER TABS */
+.filter-row{display:flex;gap:8px;justify-content:center;margin:28px 0 0;flex-wrap:wrap;animation:fu .8s ease .5s both}
+.ftab{padding:7px 16px;background:var(--card);border:1px solid var(--bdr);border-radius:20px;font-size:12px;font-weight:500;color:var(--t2);font-family:var(--fb);transition:all .2s}
+.ftab.on{background:var(--gold);color:#07080f;border-color:var(--gold)}
+.ftab:hover:not(.on){border-color:var(--g3);color:var(--t1)}
+
+/* RULES LAYOUT */
+.rules-wrap{max-width:860px;margin:0 auto;padding:60px 40px 80px}
+.rules-section{margin-bottom:48px}
+.rsec-head{display:flex;align-items:center;gap:12px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--bdr)}
+.rsec-ico{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;background:var(--g2);color:var(--gold);border:1px solid var(--g3)}
+.rsec-title{font-family:var(--ff);font-size:20px;font-weight:700}
+.rsec-count{margin-left:auto;font-family:var(--fm);font-size:10px;color:var(--t3);padding:2px 8px;background:var(--ele);border:1px solid var(--bdr);border-radius:6px}
+.rule-items{display:flex;flex-direction:column;gap:8px}
+.rule-item{display:flex;align-items:flex-start;gap:14px;padding:14px 16px;background:var(--card);border:1px solid var(--bdr);border-radius:10px;transition:all .22s;position:relative;overflow:hidden}
+.rule-item:hover{border-color:var(--g3);transform:translateX(4px)}
+.rule-item::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--gold);transform:scaleY(0);transform-origin:top;transition:transform .25s}
+.rule-item:hover::before{transform:scaleY(1)}
+.rule-num{font-family:var(--fm);font-size:10px;color:var(--t3);flex-shrink:0;width:24px;margin-top:1px}
+.rule-text{font-size:13.5px;color:var(--t2);line-height:1.6;font-weight:300}
+.rule-text strong{color:var(--t1);font-weight:500}
+.rule-tag{margin-left:auto;font-size:10px;padding:2px 8px;border-radius:6px;flex-shrink:0;font-weight:600}
+.rt-critical{background:rgba(232,64,74,.1);color:var(--red)}
+.rt-note{background:rgba(240,192,64,.08);color:var(--gold)}
+.rt-info{background:rgba(79,158,255,.1);color:var(--blue)}
+
+/* EMPTY */
+.empty-state{text-align:center;padding:60px 20px;color:var(--t3)}
+.empty-state i{font-size:36px;margin-bottom:12px;display:block}
+.empty-state p{font-size:13px}
+
+/* FOOTER */
+footer{padding:36px 40px;border-top:1px solid var(--bdr);text-align:center}
+.fl{font-family:var(--ff);font-size:18px;font-weight:700;letter-spacing:1px;margin-bottom:4px}
+.fl span{color:var(--gold)}
+.fc{font-size:11px;color:var(--t3);margin-bottom:12px}
+.flinks{display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
+.flinks a{font-size:12px;color:var(--t2);text-decoration:none;transition:color .2s}
+.flinks a:hover{color:var(--gold)}
+
+.rv{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s ease}
+.rv.vis{opacity:1;transform:translateY(0)}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-thumb{background:var(--bdr);border-radius:3px}
+@media(max-width:600px){nav{padding:0 18px}.hero{padding:100px 20px 40px}.rules-wrap{padding:40px 18px 60px}.filter-row{gap:6px}.ftab{font-size:11px;padding:6px 12px}}
+</style>
+</head>
+<body>
+<div id="C"></div><div id="CR"></div>
+
+<nav>
+  <a href="#" class="nlogo"><div class="nlogo-i"><i class="fas fa-trophy"></i></div>Arena<span>X</span></a>
+  <a href="about.html" class="nback"><i class="fas fa-arrow-left"></i> Back</a>
+</nav>
+
+<section class="hero">
+  <div class="orb"></div><div class="hgrid"></div>
+  <div class="hero-in">
+    <div class="hero-badge"><i class="fas fa-book-open" style="font-size:9px"></i> Official Rulebook</div>
+    <h1 class="hero-h1">Play Fair.<br>Or <em>Don't Play.</em></h1>
+    <p class="hero-p">These rules apply to every player, every match, every time. Ignorance is not an excuse — read before you compete.</p>
+    <div class="search-wrap">
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input class="search-inp" id="searchInp" placeholder="Search rules..."/>
+        <span class="search-count" id="searchCount">30 rules</span>
+      </div>
+    </div>
+    <div class="filter-row" id="filterRow">
+      <button class="ftab on" data-f="all">All Rules</button>
+      <button class="ftab" data-f="general">General</button>
+      <button class="ftab" data-f="team">Team</button>
+      <button class="ftab" data-f="prizes">Prizes</button>
+      <button class="ftab" data-f="conduct">Conduct</button>
+      <button class="ftab" data-f="anticheat">Anti-Cheat</button>
+    </div>
+  </div>
+</section>
+
+<div class="rules-wrap" id="rulesWrap"></div>
+
+<footer>
+  <div class="fl">Arena<span>X</span></div>
+  <div class="fc">© 2026 ArenaX — All rules enforced by Admin Rayan</div>
+  <div class="flinks">
+    <a href="about.html">About</a>
+    <a href="ArenaX.html">Platform</a>
+    <a href="admin.html">Admin</a>
+    <a href="saadan.html">Saadan</a>
+    <a href="rayan.html">Rayan</a>
+  </div>
+</footer>
+
+<script>
+const C=document.getElementById('C'),CR=document.getElementById('CR');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;C.style.left=mx+'px';C.style.top=my+'px';const t=document.createElement('div');t.className='ctr';const s=1.5+Math.random()*3;t.style.cssText=`left:${mx}px;top:${my}px;width:${s}px;height:${s}px;background:rgba(240,192,64,${.05+Math.random()*.12})`;document.body.appendChild(t);setTimeout(()=>t.remove(),550)});
+(function loop(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;CR.style.left=rx+'px';CR.style.top=ry+'px';requestAnimationFrame(loop)})();
+document.addEventListener('mousedown',()=>C.classList.add('ck'));
+document.addEventListener('mouseup',()=>C.classList.remove('ck'));
+document.addEventListener('mouseover',e=>{if(e.target.closest('a,button,.rule-item'))CR.classList.add('hv')});
+document.addEventListener('mouseout',e=>{if(e.target.closest('a,button,.rule-item'))CR.classList.remove('hv')});
+
+const RULES=[
+  {cat:'general',ico:'fa-gavel',title:'General Tournament Rules',items:[
+    {t:'All players must <strong>register before the deadline</strong> — late registrations not accepted.',tag:'note'},
+    {t:'Be online and ready <strong>10 minutes before</strong> your match starts.',tag:'note'},
+    {t:'No-shows after 10 minutes result in <strong>automatic disqualification</strong>.',tag:'critical'},
+    {t:'Match results are <strong>final once confirmed</strong> by both parties.',tag:'info'},
+    {t:'Disputes must be raised within <strong>48 hours</strong> of the match.',tag:'note'},
+    {t:'Players are responsible for a <strong>stable internet connection</strong>. Disconnects are not grounds for rematch.',tag:'info'},
+  ]},
+  {cat:'team',ico:'fa-users',title:'Team Composition Rules',items:[
+    {t:'Teams must have <strong>2 to 5 active players</strong> — no more, no less.',tag:'info'},
+    {t:'Each player can only be on <strong>one team per tournament</strong>.',tag:'critical'},
+    {t:'Team names must be <strong>appropriate</strong> — offensive names result in immediate removal.',tag:'critical'},
+    {t:'Roster changes allowed <strong>up to 24 hours</strong> before the event starts.',tag:'note'},
+    {t:'<strong>Substitutions during a match</strong> are not permitted under any circumstances.',tag:'critical'},
+    {t:'All team members must have <strong>verified accounts</strong> to participate in prize tournaments.',tag:'info'},
+  ]},
+  {cat:'prizes',ico:'fa-coins',title:'Prizes & Wallet',items:[
+    {t:'Prizes distributed within <strong>72 hours</strong> of tournament end.',tag:'info'},
+    {t:'Guest accounts have <strong>restricted prize withdrawal</strong> access.',tag:'note'},
+    {t:'All prizes awarded in <strong>AX Coins</strong> via the platform wallet.',tag:'info'},
+    {t:'Prize disputes must be raised within <strong>48 hours</strong> of distribution.',tag:'note'},
+    {t:'Large withdrawals require a <strong>fully verified account</strong>.',tag:'critical'},
+    {t:'ArenaX reserves the right to <strong>withhold prizes</strong> pending fair play review.',tag:'critical'},
+  ]},
+  {cat:'conduct',ico:'fa-ban',title:'Prohibited Conduct',items:[
+    {t:'<strong>Harassment, hate speech, or abuse</strong> of any kind — instant permanent ban.',tag:'critical'},
+    {t:'<strong>Intentionally exploiting bugs</strong> during a match is forbidden.',tag:'critical'},
+    {t:'<strong>Account sharing</strong> leads to disqualification and potential ban.',tag:'critical'},
+    {t:'<strong>VPN usage</strong> may be restricted per individual match rules.',tag:'note'},
+    {t:'<strong>Collusion or match-fixing</strong> results in permanent ban with no appeal.',tag:'critical'},
+    {t:'Repeated <strong>unsportsmanlike behavior</strong> escalates to permanent account suspension.',tag:'critical'},
+  ]},
+  {cat:'anticheat',ico:'fa-shield-alt',title:'Anti-Cheat & Fair Play',items:[
+    {t:'ArenaX uses <strong>automated and manual anti-cheat monitoring</strong> on all matches.',tag:'info'},
+    {t:'Suspicious activity flags trigger a <strong>mandatory review period</strong>.',tag:'note'},
+    {t:'Confirmed cheating results in a <strong>permanent ban with no appeal</strong>.',tag:'critical'},
+    {t:'Report cheaters <strong>immediately via support chat</strong> with evidence.',tag:'info'},
+    {t:'<strong>Screenshots and video clips</strong> serve as valid evidence in all disputes.',tag:'info'},
+    {t:'Good faith reporting is <strong>encouraged and protected</strong> — false reports are penalized.',tag:'note'},
+  ]},
+];
+
+let activeFilter='all', searchQuery='';
+
+function renderRules(){
+  const wrap=document.getElementById('rulesWrap');
+  const q=searchQuery.toLowerCase();
+  let totalVisible=0;
+  let html='';
+  RULES.forEach(sec=>{
+    if(activeFilter!=='all'&&sec.cat!==activeFilter)return;
+    const filtered=sec.items.filter(r=>!q||r.t.replace(/<[^>]+>/g,'').toLowerCase().includes(q));
+    if(!filtered.length)return;
+    totalVisible+=filtered.length;
+    html+=`<div class="rules-section rv">
+      <div class="rsec-head">
+        <div class="rsec-ico"><i class="fas ${sec.ico}"></i></div>
+        <div class="rsec-title">${sec.title}</div>
+        <div class="rsec-count">${filtered.length} rule${filtered.length!==1?'s':''}</div>
+      </div>
+      <div class="rule-items">
+        ${filtered.map((r,i)=>`
+          <div class="rule-item rv" style="transition-delay:${i*45}ms">
+            <span class="rule-num">${String(i+1).padStart(2,'0')}</span>
+            <span class="rule-text">${r.t}</span>
+            ${r.tag?`<span class="rule-tag rt-${r.tag}">${r.tag==='critical'?'Critical':r.tag==='note'?'Note':'Info'}</span>`:''}
+          </div>`).join('')}
+      </div>
+    </div>`;
+  });
+  if(!totalVisible)html=`<div class="empty-state"><i class="fas fa-search"></i><p>No rules match "<strong>${searchQuery}</strong>"</p></div>`;
+  wrap.innerHTML=html;
+  document.getElementById('searchCount').textContent=totalVisible+' rule'+(totalVisible!==1?'s':'');
+  const ro=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');ro.unobserve(e.target)}})},{threshold:.08});
+  wrap.querySelectorAll('.rv').forEach(el=>ro.observe(el));
+}
+
+document.getElementById('searchInp').addEventListener('input',e=>{searchQuery=e.target.value;renderRules()});
+document.getElementById('filterRow').addEventListener('click',e=>{
+  const t=e.target.closest('.ftab');if(!t)return;
+  document.querySelectorAll('.ftab').forEach(b=>b.classList.remove('on'));
+  t.classList.add('on');activeFilter=t.dataset.f;renderRules();
+});
+
+renderRules();
+</script>
+</body>
+</html>
